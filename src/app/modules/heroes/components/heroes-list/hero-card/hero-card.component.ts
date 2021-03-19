@@ -11,13 +11,12 @@ export class HeroCardComponent implements OnInit {
   @Input('heroes') heroesProps: HeroInterface[];
   @Input('coach') coachProps: string;
   @Input('index') indexProps: number;
-  spinnerColor: string = '#fff';
   isStartTraining: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}
 
-  onStartTraining() {
+  onStartTraining(): void {
     this.isStartTraining = true;
   }
 }

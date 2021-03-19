@@ -3,20 +3,21 @@ import {
   Component,
   OnDestroy,
   OnInit,
-  Optional,
 } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { LoginFormService } from '../../services/login-form.service';
 import { LoginService } from '../../services/login.service';
 import { Subject } from 'rxjs';
-import { CoachService } from '../../../../shared/services/coach.service';
+import * as CryptoJS from 'crypto-js';
+import { NGXLogger } from 'ngx-logger';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'yl-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [CoachService],
+  providers: [],
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private loginFormService: LoginFormService,
     private auth: LoginService,
-    private coachService: CoachService
+    private logger: NGXLogger
   ) {}
 
   ngOnInit(): void {
@@ -40,13 +41,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onLogin(): void {
-    console.log('Instance', this.coachService);
-    this.coachService.sendData(this.username.value);
-    this.auth.login(this.loginForm.value).subscribe((result) => {
-      if (!result) {
-        this.showWrongMessage = true;
-      }
-    });
+    this.auth
+      .login(this.loginForm.value)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((result) => {
+        if (!result) {
+          this.showWrongMessage = true;
+        }
+      });
   }
   ngOnDestroy(): void {
     this.destroy$.next(true);

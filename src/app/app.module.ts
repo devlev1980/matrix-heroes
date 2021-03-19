@@ -8,7 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './modules/login/components/login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CoachService } from './shared/services/coach.service';
+
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -20,14 +21,13 @@ import { CoachService } from './shared/services/coach.service';
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
+    LoggerModule.forRoot({
+      serverLoggingUrl: '/api/logs',
+      level: NgxLoggerLevel.DEBUG,
+      serverLogLevel: NgxLoggerLevel.ERROR,
+    }),
   ],
-  providers: [
-    {
-      provide: CoachService,
-      useClass: CoachService,
-      multi: true,
-    },
-  ],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

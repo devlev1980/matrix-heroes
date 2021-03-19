@@ -6,7 +6,6 @@ import { HeroesListComponent } from './components/heroes-list/heroes-list.compon
 import { HeroesService } from './services/heroes.service';
 import { HeroCardComponent } from './components/heroes-list/hero-card/hero-card.component';
 import { SharedModule } from '../../shared/shared.module';
-import { CoachService } from '../../shared/services/coach.service';
 import { CustomSpinnerDirective } from './directives/custom-spinner.directive';
 
 @NgModule({
@@ -16,6 +15,6 @@ import { CustomSpinnerDirective } from './directives/custom-spinner.directive';
     CustomSpinnerDirective,
   ],
   imports: [CommonModule, HeroesRoutingModule, SharedModule],
-  providers: [HeroesService, CoachService],
+  providers: [HeroesService],
 })
 export class HeroesModule {}
