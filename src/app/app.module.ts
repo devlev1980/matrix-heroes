@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { LocalStorageService } from './shared/services/local-storage.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -21,11 +22,13 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
-    LoggerModule.forRoot({
-      serverLoggingUrl: '/api/logs',
-      level: NgxLoggerLevel.DEBUG,
-      serverLogLevel: NgxLoggerLevel.ERROR,
-    }),
+  ],
+  providers: [
+    LocalStorageService,
+    {
+      provide: 'LocalStorage',
+      useValue: window.localStorage,
+    },
   ],
 
   bootstrap: [AppComponent],

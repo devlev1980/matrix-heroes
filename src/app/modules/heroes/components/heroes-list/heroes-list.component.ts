@@ -1,8 +1,16 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { HeroesService } from '../../services/heroes.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HeroInterface } from '../../../login/types/hero.interface';
 import { Router } from '@angular/router';
+import { LogService } from '../../../../shared/services/log.service';
+import { takeUntil } from 'rxjs/operators';
+import { LocalStorageService } from '../../../../shared/services/local-storage.service';
 
 @Component({
   selector: 'yl-heroes-list',
@@ -10,22 +18,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./heroes-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeroesListComponent implements OnInit {
+export class HeroesListComponent implements OnInit, OnDestroy {
   heroes$: Observable<HeroInterface[]>;
   authorizedCoach: IRoute;
+  destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private heroesService: HeroesService, private router: Router) {}
+  constructor(
+    private heroesService: HeroesService,
+    private router: Router,
+    private logger: LogService,
+    private lsService: LocalStorageService
+  ) {}
 
   ngOnInit(): void {
     this.authorizedCoach = window.history.state;
+
+    console.log();
     this.getHeroes();
-    // console.log('Instance', this.coachService);
   }
 
   getHeroes(): void {
     this.heroes$ = this.heroesService.getHeroes();
+    this.heroes$.pipe(takeUntil(this.destroy$)).subscribe((data) => {
+      this.logger.debug('Get heroes', 'heroes-list', data);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
   }
 }
+
 interface IRoute {
   coach: string;
   navigationId: number;

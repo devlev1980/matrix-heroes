@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { TrainerInterface } from '../types/trainer.interface';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { LocalStorageService } from '../../../shared/services/local-storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
+export class LoginService implements OnInit {
   isAuthorized: boolean = false;
 
   private trainers: TrainerInterface[] = [
@@ -19,10 +20,28 @@ export class LoginService {
       password: 'Asdfghjk123$',
     },
   ];
-  constructor(private route: Router) {}
+  constructor(private route: Router, private lsService: LocalStorageService) {
+    this.lsService.getState().subscribe((data) => {
+      console.log(data.userToken);
+      const authTrainer = this.trainers.find(
+        (u) => (u.username = data.userToken.username)
+      );
+      if (
+        authTrainer.username === data.userToken.username &&
+        authTrainer.password === data.userToken.password
+      ) {
+        this.isAuthorized = true;
+        this.route.navigate(['/heroes'], {
+          state: { coach: data.userToken.username },
+        });
+      } else {
+      }
+    });
+  }
+  ngOnInit() {}
 
   login(trainer: TrainerInterface): Observable<boolean> {
-    trainer.username = trainer.username.toLowerCase();
+    // trainer.username = trainer.username.toLowerCase();
     const authTrainer = this.trainers.find(
       (u) => (u.username = trainer.username)
     );
@@ -32,7 +51,6 @@ export class LoginService {
       this.route.navigate(['/heroes'], {
         state: { coach: authTrainer.username },
       });
-
       return of(this.isAuthorized);
     } else {
       this.isAuthorized = false;
