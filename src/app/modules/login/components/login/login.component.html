@@ -1,0 +1,22 @@
+<div class="login_container" >
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <mat-form-field>
+      <input type="text" matInput placeholder="username" formControlName="username">
+    </mat-form-field>
+    <mat-error *ngIf="(username.touched || username.dirty) && username.errors?.required">This field is required</mat-error>
+    <mat-form-field>
+      <input type="password" matInput placeholder="password" formControlName="password">
+    </mat-form-field>
+    <mat-error *ngIf="(password.touched || password.dirty) && password.errors?.required ">This field is required</mat-error>
+    <mat-error  *ngIf="(password.touched || password.dirty) && password?.invalid && !password.errors?.required">
+      Password format invalid
+    </mat-error>
+    <mat-error  *ngIf="showWrongMessage">
+      Password or username is invalid
+    </mat-error>
+    <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Login
+    </button>
+
+  </form>
+
+</div>

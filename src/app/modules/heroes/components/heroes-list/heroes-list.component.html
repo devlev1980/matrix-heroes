@@ -1,0 +1,7 @@
+<yl-header [coach]="authorizedCoach.coach"></yl-header>
+
+<div class="hero-list_container" *ngIf="heroes$ | async as heroes">
+  <div class="hero_card" *ngFor="let hero of heroes;let index=i">
+    <yl-hero-card [hero]="hero" [coach]="authorizedCoach.coach" [heroes]="heroes" [index]="index"></yl-hero-card>
+  </div>
+</div>

@@ -1,0 +1,205 @@
+{
+  "heroes": [
+    {
+      "name": "Valerye",
+      "id": "f06ea28d-2a24-4c90-8faf-2008cc746791",
+      "start_date": "6/9/2020",
+      "suit_colors": "green,red",
+      "ability": "attacker",
+      "starting_power": 5,
+      "current_power": 9,
+      "coach": "John"
+    },
+    {
+      "name": "Menard",
+      "id": "e2ba604c-64e0-4c3f-98f3-ba997abd4b0e",
+      "start_date": "5/24/2020",
+      "suit_colors": "green,blue",
+      "ability": "defender",
+      "starting_power": 63,
+      "current_power": 96,
+      "coach": "John"
+    },
+    {
+      "name": "Lydon",
+      "id": "e6572d96-fed4-4153-b89c-1e8e6be15e55",
+      "start_date": "6/4/2020",
+      "suit_colors": "yellow,white",
+      "ability": "attacker",
+      "starting_power": 50,
+      "current_power": 48,
+      "coach": "Tom"
+    },
+    {
+      "name": "Ashley",
+      "id": "f5a86999-a5ee-4fa3-9987-d3e2a2ce6238",
+      "start_date": "1/4/2021",
+      "suit_colors": "brown,blue",
+      "ability": "attacker",
+      "starting_power": 51,
+      "current_power": 54,
+      "coach": "John"
+    },
+    {
+      "name": "Tansy",
+      "id": "bce95d5e-26bd-4481-b111-2d1cfe63eef6",
+      "start_date": "7/21/2020",
+      "suit_colors": "brown,black",
+      "ability": "defender",
+      "starting_power": 20,
+      "current_power": 85,
+      "coach": "Tom"
+    },
+    {
+      "name": "Thane",
+      "id": "05488b68-6ceb-41d7-9b88-8f94dbbce2a7",
+      "start_date": "11/12/2020",
+      "suit_colors": "brown,red",
+      "ability": "defender",
+      "starting_power": 66,
+      "current_power": 32,
+      "coach": "John"
+    },
+    {
+      "name": "Prent",
+      "id": "6074591d-378f-481e-8154-3b33f67eb2ed",
+      "start_date": "1/5/2021",
+      "suit_colors": "brown,orange",
+      "ability": "attacker",
+      "starting_power": 79,
+      "current_power": 48,
+      "coach": "Tom"
+    },
+    {
+      "name": "Liam",
+      "id": "10a1de2c-43b6-4e55-9e12-8023eeb4f98e",
+      "start_date": "8/30/2020",
+      "suit_colors": "red,orange",
+      "ability": "attacker",
+      "starting_power": 68,
+      "current_power": 35,
+      "coach": "Tom"
+    },
+    {
+      "name": "Cob",
+      "id": "d4be0bae-9856-43e3-951d-d873df10c276",
+      "start_date": "8/8/2020",
+      "suit_colors": "white,pink",
+      "ability": "defender",
+      "starting_power": 12,
+      "current_power": 99,
+      "coach": "John"
+    },
+    {
+      "name": "Reade",
+      "id": "24b93763-34b2-4622-b612-5965984c74c3",
+      "start_date": "11/4/2020",
+      "suit_colors": "brown,coral",
+      "ability": "defender",
+      "starting_power": 33,
+      "current_power": 4,
+      "coach": "Tom"
+    },
+    {
+      "name": "Susannah",
+      "id": "bd2a0c15-20fa-4567-a256-76cde0b5abee",
+      "start_date": "7/15/2020",
+      "suit_colors": "yellow,coral",
+      "ability": "defender",
+      "starting_power": 62,
+      "current_power": 98,
+      "coach": "John"
+    },
+    {
+      "name": "Hewet",
+      "id": "22f41e24-7375-416d-b35d-3e78afe509ea",
+      "start_date": "9/5/2020",
+      "suit_colors": "coral,yellow",
+      "ability": "defender",
+      "starting_power": 86,
+      "current_power": 6,
+      "coach": "Tom"
+    },
+    {
+      "name": "Bobina",
+      "id": "7e9fd194-8d0f-4b32-b14d-00cd8102a138",
+      "start_date": "5/22/2020",
+      "suit_colors": "beige,azure",
+      "ability": "attacker",
+      "starting_power": 15,
+      "current_power": 12,
+      "coach": "John"
+    },
+    {
+      "name": "Nari",
+      "id": "aa5587b8-0ad2-4656-8d8d-3a2c26a93f97",
+      "start_date": "1/8/2021",
+      "suit_colors": "white,azure",
+      "ability": "attacker",
+      "starting_power": 37,
+      "current_power": 24,
+      "coach": "Tom"
+    },
+    {
+      "name": "Theresina",
+      "id": "686f3939-4bb5-4234-a3c2-b067d815635e",
+      "start_date": "10/15/2020",
+      "starting_power": 38,
+      "ability": "attacker",
+      "suit_colors": "cadetblue,red",
+      "current_power": 85,
+      "coach": "John"
+    },
+    {
+      "name": "Bud",
+      "id": "3817cb5d-a6f5-45bb-bc3a-d553fe96e559",
+      "start_date": "9/10/2020",
+      "suit_colors": "pink,coral",
+      "ability": "defender",
+      "starting_power": 27,
+      "current_power": 38,
+      "coach": "Tom"
+    },
+    {
+      "name": "Norina",
+      "id": "1d96f27f-4583-4259-8df5-f57834115f6d",
+      "start_date": "6/4/2020",
+      "suit_colors": "white,coral",
+      "ability": "attacker",
+      "starting_power": 85,
+      "current_power": 52,
+      "coach": "Tom"
+    },
+    {
+      "name": "Percy",
+      "id": "08d8698c-360d-4ea8-a047-de9874a8447e",
+      "start_date": "1/7/2021",
+      "suit_colors": "black,coral",
+      "ability": "defender",
+      "starting_power": 100,
+      "current_power": 98,
+      "coach": "Tom"
+    },
+    {
+      "name": "Fulton",
+      "id": "f689355a-3fcf-4119-848d-6774b04496ec",
+      "start_date": "5/10/2020",
+      "suit_colors": "black,white",
+      "ability": "defender",
+      "starting_power": 33,
+      "current_power": 97,
+      "coach": "John"
+    },
+    {
+      "name": "Tammara",
+      "id": "04046ae6-d407-4020-97bb-3feae5df1f3d",
+      "start_date": "10/20/2020",
+      "suit_colors": "black,brown",
+      "ability": "attacker",
+      "starting_power": 96,
+      "current_power": 44,
+      "coach": "John"
+    }
+  ]
+}
+
