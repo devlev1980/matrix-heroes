@@ -1,3 +1,8 @@
-<mat-toolbar color="primary">
-  <span *ngIf="coachProps" tabindex="0" aria-label="header">Welcome &nbsp;{{coachProps | titlecase}}</span>
-</mat-toolbar>
+<!--<mat-toolbar color="primary">-->
+<!--  <span *ngIf="coachProps" tabindex="0" aria-label="header">Welcome &nbsp;{{coachProps | titlecase}}</span>-->
+<!--</mat-toolbar>-->
+<article class="header">
+  <h1 *ngIf="coachProps" tabindex="0">
+    Welcome &nbsp; {{ coachProps | titlecase }}
+  </h1>
+</article>

@@ -9,7 +9,6 @@ import { Observable, Subject } from 'rxjs';
 import { HeroInterface } from '../../../login/types/hero.interface';
 import { Router } from '@angular/router';
 import { LogService } from '../../../../shared/services/log.service';
-import { takeUntil } from 'rxjs/operators';
 import { LocalStorageService } from '../../../../shared/services/local-storage.service';
 
 @Component({
@@ -22,7 +21,7 @@ export class HeroesListComponent implements OnInit, OnDestroy {
   heroes$: Observable<HeroInterface[]>;
   authorizedCoach: IRoute;
   destroy$: Subject<boolean> = new Subject<boolean>();
-
+  showSpinner: boolean = false;
   constructor(
     private heroesService: HeroesService,
     private router: Router,
@@ -33,15 +32,14 @@ export class HeroesListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.authorizedCoach = window.history.state;
 
-    console.log();
     this.getHeroes();
   }
 
   getHeroes(): void {
     this.heroes$ = this.heroesService.getHeroes();
-    this.heroes$.pipe(takeUntil(this.destroy$)).subscribe((data) => {
-      this.logger.debug('Get heroes', 'heroes-list', data);
-    });
+    // this.heroes$.pipe(takeUntil(this.destroy$)).subscribe((data) => {
+    //   this.logger.debug('Get heroes', 'heroes-list', data);
+    // });
   }
 
   ngOnDestroy(): void {

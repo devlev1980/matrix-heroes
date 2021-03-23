@@ -1,4 +1,45 @@
-.actions{
+@use "src/assets/styles/colors";
+@use "src/assets/styles/mixins";
+.hero-details {
+  display: block;
+  background-color: colors.$whiteColor;
+  padding: 20px;
+  min-height: 309px;
+  .header {
+    h3 {
+      font-size: 22px;
+      margin-bottom: 1rem;
+      padding-left: 7px;
+      &:focus {
+        @include mixins.outline;
+      }
+    }
+  }
+  .content {
+    ul {
+      li {
+        padding: 8px 10px;
+        border-bottom: colors.$borderColor;
+        color: #245682;
+        &:focus {
+          @include mixins.outline;
+        }
+        a {
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
+
+.actions {
   display: flex;
   justify-content: flex-end;
+  margin-top: 1rem;
+  button {
+    padding: 10px;
+    background-color: colors.$buttonBg;
+    color: colors.$whiteColor;
+    border-radius: 5px;
+  }
 }

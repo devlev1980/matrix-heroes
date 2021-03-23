@@ -33,19 +33,32 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router
   ) {}
 
+  /**
+   * Initialize form
+   */
   ngOnInit(): void {
     this.loginForm = this.loginFormService.initializeForm();
   }
+
+  /**
+   * Get username control
+   */
   get username(): AbstractControl {
     return this.loginForm.get('username');
   }
+
+  /**
+   * Get password control
+   */
   get password(): AbstractControl {
     return this.loginForm.get('password');
   }
 
+  /**
+   * Click on 'Login button' in form
+   */
   onLogin(): void {
     this.logger.debug('Click on login', 'Login');
-
     this.auth
       .login(this.loginForm.value)
       .pipe(takeUntil(this.destroy$))
@@ -58,6 +71,10 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
       });
   }
+
+  /**
+   * Unsubscribe from observable
+   */
   ngOnDestroy(): void {
     this.destroy$.next(true);
   }

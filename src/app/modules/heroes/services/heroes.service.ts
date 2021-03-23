@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Heroes, HeroInterface } from '../../login/types/hero.interface';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
 
 @Injectable()
 export class HeroesService {
@@ -10,6 +10,7 @@ export class HeroesService {
 
   getHeroes(): Observable<HeroInterface[]> {
     return this.http.get<Heroes>('../../assets/mock/MOCK_DATA.json').pipe(
+      delay(3000),
       map((result) =>
         result.heroes.sort((a, b) => {
           if (a.current_power < b.current_power) {

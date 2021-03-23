@@ -1,0 +1,12 @@
+@use "src/assets/styles/colors";
+article.header {
+  background-color: colors.$buttonBg;
+  color: colors.$whiteColor;
+  padding: 10px;
+  h1 {
+    font-size: 22px;
+    &:focus {
+      outline: 1px solid colors.$whiteColor;
+    }
+  }
+}

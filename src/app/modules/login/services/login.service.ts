@@ -7,7 +7,7 @@ import { LocalStorageService } from '../../../shared/services/local-storage.serv
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService implements OnInit {
+export class LoginService {
   isAuthorized: boolean = false;
 
   private trainers: TrainerInterface[] = [
@@ -20,28 +20,38 @@ export class LoginService implements OnInit {
       password: 'Asdfghjk123$',
     },
   ];
+
+  /**
+   * Get credentials from LocalStorage
+   * @param route: Router
+   * @param lsService: LocalStorageService
+   */
+
   constructor(private route: Router, private lsService: LocalStorageService) {
     this.lsService.getState().subscribe((data) => {
-      console.log(data.userToken);
-      const authTrainer = this.trainers.find(
-        (u) => (u.username = data.userToken.username)
-      );
-      if (
-        authTrainer.username === data.userToken.username &&
-        authTrainer.password === data.userToken.password
-      ) {
-        this.isAuthorized = true;
-        this.route.navigate(['/heroes'], {
-          state: { coach: data.userToken.username },
-        });
-      } else {
+      if (data.userToken) {
+        const authTrainer = this.trainers.find(
+          (u) => (u.username = data.userToken.username)
+        );
+        if (
+          authTrainer.username === data.userToken.username &&
+          authTrainer.password === data.userToken.password
+        ) {
+          this.isAuthorized = true;
+          this.route.navigate(['/heroes'], {
+            state: { coach: data.userToken.username },
+          });
+        }
       }
     });
   }
-  ngOnInit() {}
+
+  /**
+   * Login with trainer credentials
+   * @param trainer: TrainerInterface
+   */
 
   login(trainer: TrainerInterface): Observable<boolean> {
-    // trainer.username = trainer.username.toLowerCase();
     const authTrainer = this.trainers.find(
       (u) => (u.username = trainer.username)
     );

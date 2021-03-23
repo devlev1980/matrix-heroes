@@ -10,7 +10,7 @@ export class LocalStorageService {
   public state$ = new BehaviorSubject<{ [key: string]: any }>({});
 
   constructor(@Inject('LocalStorage') private localStorageService: Storage) {}
-  getState() {
+  getState(): BehaviorSubject<{ [p: string]: any }> {
     if (localStorage.getItem(this.stateKey) !== null) {
       this.state = JSON.parse(
         atob(this.localStorageService.getItem(this.stateKey) || '{}')
@@ -20,7 +20,6 @@ export class LocalStorageService {
         this.localStorageService.getItem(this.stateKey) || '{}'
       );
     }
-
     Object.freeze(this.state);
     this.state$.next(this.state);
     return this.state$;

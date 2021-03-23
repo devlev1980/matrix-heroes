@@ -8,8 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './modules/login/components/login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { LocalStorageService } from './shared/services/local-storage.service';
 
 @NgModule({
