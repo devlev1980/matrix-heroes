@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HeroInterface } from '../../../../login/types/hero.interface';
+import { HeroInterface } from '../../../../../login/types/hero.interface';
 import { LogService } from '../../../../../shared/services/log.service';
 
 @Component({

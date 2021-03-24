@@ -9,8 +9,8 @@ import { LoginFormService } from '../../services/login-form.service';
 import { LoginService } from '../../services/login.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { LogService } from '../../../../shared/services/log.service';
-import { LocalStorageService } from '../../../../shared/services/local-storage.service';
+import { LogService } from '../../../shared/services/log.service';
+import { LocalStorageService } from '../../../shared/services/local-storage.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     private auth: LoginService,
     private logger: LogService,
     private lsService: LocalStorageService,
-    private router: Router
   ) {}
 
   /**

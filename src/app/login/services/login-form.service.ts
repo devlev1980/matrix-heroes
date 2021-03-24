@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { passwordValidator } from '../../../shared/custom-validators/password-validator';
+import { passwordValidator } from '../../shared/custom-validators/password-validator';
 
 @Injectable({
   providedIn: 'root',

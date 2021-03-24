@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { HeroesService } from '../../services/heroes.service';
 import { Observable, Subject } from 'rxjs';
-import { HeroInterface } from '../../../login/types/hero.interface';
+import { HeroInterface } from '../../../../login/types/hero.interface';
 import { Router } from '@angular/router';
 import { LogService } from '../../../../shared/services/log.service';
 import { LocalStorageService } from '../../../../shared/services/local-storage.service';

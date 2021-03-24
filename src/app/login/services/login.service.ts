@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { TrainerInterface } from '../types/trainer.interface';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { LocalStorageService } from '../../../shared/services/local-storage.service';
+import { LocalStorageService } from '../../shared/services/local-storage.service';
 
 @Injectable({
   providedIn: 'root',

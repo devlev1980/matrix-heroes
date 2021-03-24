@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class LocalStorageService {
-  private readonly stateKey: string = 'state';
+  private readonly stateKey: string = 'accessToken';
   private state: { [key: string]: any };
   public state$ = new BehaviorSubject<{ [key: string]: any }>({});
 
@@ -16,6 +16,7 @@ export class LocalStorageService {
         atob(this.localStorageService.getItem(this.stateKey) || '{}')
       );
     } else {
+
       this.state = JSON.parse(
         this.localStorageService.getItem(this.stateKey) || '{}'
       );
